@@ -5,7 +5,7 @@ struct student {
     int age ;
     char sex ;
     float gpa ;
-} ;//end struct student
+} ;
 
 void upgrade( struct student *child ) ;
 
@@ -14,16 +14,16 @@ int main() {
     aboy.sex = 'M' ;
     aboy.gpa = 3.00 ;
     upgrade( &aboy ) ;
-    printf( "Old GPA :%.2f", aboy.gpa ) ;
-    return 0 ;
+    printf( "%.2f", aboy.gpa ) ;
+return 0 ;
 }//end function
 
 void upgrade( struct student *child ) {
-    if ( child->sex == 'M' ) {
-        child->gpa = child->gpa * 1.1;
-        printf( "New GPA Male: %.2f\n", child->gpa ) ;
-    } else {
-        child->gpa = child->gpa * 1.1 ;
-        printf( "New GPA Female: %.2f\n", child->gpa ) ;
-    }//end if else
-}//end function
+    if (child->sex = 'M')
+    {
+        child->gpa *= 1.10 ;
+    }else if (child->sex =='F')
+    {
+        child->gpa*= 1.20 ;
+    }
+}

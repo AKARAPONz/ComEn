@@ -1,35 +1,34 @@
 #include <stdio.h>
 
 struct student {
-    char name[ 20 ] ;
-    int age ;
-    char sex ;
-    float gpa ;
-} ;//end struct student
+    char name[50];
+    int age;
+    float grade;
+};
 
-void GetStudent( struct student child[][10], int *room ) ;
+void GetStudent(struct student child[][10], int *room);
 
 int main() {
-    struct student children[ 20 ][ 10 ] ;
-    int group ;
-    GetStudent( children, &group ) ;
-    return 0 ;
-}//end function
+    struct student children[20][10];
+    int group;
+    GetStudent(children, &group);
+    return 0;
+}
 
-void GetStudent( struct student child[ ][ 10 ], int *room ) {
-    printf( "Enter Room: " ) ;
-    scanf( "%i", room ) ;
+void GetStudent(struct student child[][10], int *room) {
+    printf("Classroom All : ");
+    scanf("%d", room);
 
-    for ( int i = 0; i < *room; i++ ) {
-        for ( int j = 0; j < 10; j++ ) {
-            printf( "Enter Name Student [%i][%i]: ", i + 1, j + 1 ) ;
-            scanf( "%s", child[ i ][ j ].name ) ;
-        }//end for loop
-    }//end for loop
-    
-    for ( int k = 0; k < *room; k++ ) {
-        for ( int l = 0; l < 10; l++ ) {
-            printf( "Name Student [%i][%i]: %s \n", k + 1, l + 1, child[ k ][ l ] ) ;
-        }//end for loop
-    }//end for loop
-}//end function
+    for (int i = 0; i < *room; i++) {
+        printf("Classroom %d:\n", i + 1);
+        for (int j = 0; j < 2; j++) {
+            printf("Student %d:\n", j + 1);
+            printf("Name: ");
+            scanf("%s", child[i][j].name);
+            printf("Age: ");
+            scanf("%d", &child[i][j].age);
+            printf("Grade: ");
+            scanf("%f", &child[i][j].grade);
+        }
+    }
+}
